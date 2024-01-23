@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Expression Engine UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple web-based Expression Engine UI built using React and Bootstrap.
 
-## Available Scripts
+## Features
+
+- Add and delete expressions with key, operator, value, and score.
+- Choose a combinator type (AND/OR) for combining expressions.
+- Responsive and visually appealing UI using Bootstrap.
 
 In the project directory, you can run:
 
