@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
 const Ex = () => {
-  const initialRule = { key: 'age', output: { value: '', operator: '>=', score: '' } };
+  const initialRule = {
+    key: "age",
+    output: { value: "", operator: ">=", score: "" },
+  };
   const [rules, setRules] = useState([initialRule]);
   const [combinator, setCombinator] = useState("and");
+  const [warningMessage, setWarningMessage] = useState("");
 
   const handleRuleChange = (index, key, value) => {
     const updatedRules = [...rules];
@@ -19,14 +23,14 @@ const Ex = () => {
 
   const handleOperatorChange = (index, value) => {
     handleRuleChange(index, "output.operator", value);
-  };  
+  };
 
   const handleCombinatorChange = (value) => {
     setCombinator(value);
   };
 
   const handleAddRule = () => {
-    setRules([...rules, { ...initialRule }]); 
+    setRules([...rules, { ...initialRule }]);
   };
 
   const handleDeleteRule = (index) => {
@@ -36,19 +40,38 @@ const Ex = () => {
   };
 
   const handleSubmit = () => {
-    const output = {
+    const hasEmptyValues = rules.some(
+      (rule) =>
+        rule.key.trim() === "" ||
+        rule.output.value.trim() === "" ||
+        rule.output.score.trim() === "" ||
+        rule.output.operator.trim() === ""
+    );
+
+    if (hasEmptyValues) {
+      setWarningMessage("Please fill in all values before submitting.");
+      return;
+    }
+    setWarningMessage("");
+
+    const newOutput = {
       rules: rules.map((rule) => ({
         key: rule.key,
         output: { ...rule.output },
       })),
       combinator,
     };
-
-    console.log(JSON.stringify(output, null, 2));
+    console.log(JSON.stringify(newOutput, null, 2));
   };
 
   return (
-    <div className="container">
+    <div className="container mt-1 bg-light">
+      {warningMessage && (
+        <div className="alert alert-warning" role="alert">
+          {warningMessage}
+        </div>
+      )}
+
       <form>
         <div className="form-group">
           <label htmlFor="combinator">Combinator Type</label>
