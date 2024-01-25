@@ -30,7 +30,8 @@ const Ex = () => {
   };
 
   const handleAddRule = () => {
-    setRules([...rules, { ...initialRule }]);
+    const newRule = JSON.parse(JSON.stringify(initialRule));
+    setRules([...rules, newRule]);
   };
 
   const handleDeleteRule = (index) => {
