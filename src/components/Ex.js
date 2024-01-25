@@ -65,7 +65,7 @@ const Ex = () => {
   };
 
   return (
-    <div className="container mt-1 bg-light">
+    <div className="container mt-1 mb-1 bg-secondary rounded text-white">
       {warningMessage && (
         <div className="alert alert-warning" role="alert">
           {warningMessage}
@@ -76,7 +76,7 @@ const Ex = () => {
         <div className="form-group">
           <label htmlFor="combinator">Combinator Type</label>
           <select
-            className="form-control"
+            className="form-control bg-secondary text-white"
             id="combinator"
             value={combinator}
             onChange={(e) => handleCombinatorChange(e.target.value)}
@@ -92,7 +92,7 @@ const Ex = () => {
               <div className="form-group">
                 <label htmlFor={`ruleType-${index}`}>Rule Type</label>
                 <select
-                  className="form-control"
+                  className="form-control bg-secondary text-white"
                   id={`ruleType-${index}`}
                   value={rule.key}
                   onChange={(e) =>
@@ -109,7 +109,7 @@ const Ex = () => {
               <div className="form-group">
                 <label htmlFor={`operator-${index}`}>Operator</label>
                 <select
-                  className="form-control"
+                  className="form-control bg-secondary text-white"
                   id={`operator-${index}`}
                   value={rule.output.operator}
                   onChange={(e) => handleOperatorChange(index, e.target.value)}
@@ -127,7 +127,7 @@ const Ex = () => {
                 <label htmlFor={`value-${index}`}>Value</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control bg-secondary text-white"
                   id={`value-${index}`}
                   value={rule.output.value}
                   onChange={(e) =>
@@ -141,7 +141,7 @@ const Ex = () => {
                 <label htmlFor={`score-${index}`}>Score</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control bg-secondary text-white"
                   id={`score-${index}`}
                   value={rule.output.score}
                   onChange={(e) =>
@@ -172,7 +172,7 @@ const Ex = () => {
 
         <button
           type="button"
-          className="btn btn-success mx-1 mt-2"
+          className="btn btn-success mx-1 mt-2 mb-1"
           onClick={handleSubmit}
         >
           Submit
